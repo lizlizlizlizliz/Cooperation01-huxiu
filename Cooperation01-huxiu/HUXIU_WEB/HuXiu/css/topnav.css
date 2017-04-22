@@ -1,0 +1,204 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,image{ margin:0; padding:0; }
+body {font-family:'Microsoft Yahei'; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a {text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+ textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+
+.top {
+	background: #fff;
+	width: 100%;
+	height: 60px;
+	border-bottom: 2px solid #E6E6E6;
+	z-index: +5;
+}/*顶部导航栏*/
+
+.topNav {
+	width: 1000px;
+	margin: 0 auto;
+	height: 60px;
+}/*顶部导航栏剧中部分*/
+
+.informationNav {
+	position: relative;
+	float: left;
+	width: 430px;
+	height: 60px;
+	line-height: 60px;
+	margin: 0 30px 0 0;
+}/*资讯导航栏*/
+
+.secondNav {
+	padding:0 0 20px 20px;
+	background: #fff;
+	width:180px;
+	position: absolute;
+	top: 50px;
+	left: 320px;
+	z-index: +5;
+	opacity: 0;
+}/*资讯二级菜单*/
+
+.displaynone {
+	display: none;
+}
+
+.secondNav ul li {
+	float: left;
+	display: inline-block;
+	margin: 0 10px;
+	width: 60px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #666;
+}
+
+.secondNav li a {
+	color: #666;
+}
+
+#information {
+	padding-left: 20px;
+	background: url(../images/nav-cue.png) no-repeat left center;
+}
+
+.informationNav h1 {
+	font-size: 20px;
+	line-height: 60px;
+	color: #333;
+	margin-left: 365px;
+}/*资讯*/
+
+.informationNav h1:hover {
+	color: #666;
+	cursor: pointer;
+}
+
+.logo {
+	float: left;
+	margin: 0 auto;
+	line-height: 60px;
+	width: 80px;
+	height: 60px;
+}/*虎嗅logo*/
+
+.logo img {
+	width: 70px;
+	height: 50px;
+	margin: 5px;
+}
+
+.activities {
+	height: 60px;
+	float: left;
+	margin-left: 30px;
+}/*活动按钮*/
+
+.activities a {
+	color: #333;
+	font-size: 20px;
+	line-height: 60px;
+}
+
+.activities a:hover {
+	color: #666;
+}
+
+.search {
+	height: 60px;
+	width: 100px;
+	float: right;
+	margin-right: 20px;
+}/*手机和搜索*/
+
+.search button {
+	border: 0;
+	width: 32px;
+	height: 30px;
+	margin: 14px 5px;
+}
+
+.search button:hover {
+	cursor: pointer;
+}
+
+#phone {
+	background: url(../images/phone.png) no-repeat;
+}
+
+#search {
+	background:  url(../images/search.png) no-repeat;
+}
+
+.alert {
+	width: 100%;
+	height: 700px;
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	background: rgba(255,255,255,0.8);
+	z-index: +5;
+	display: none;
+}
+
+.alertInner {
+	width: 1000px;
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.alertInner input {
+	float: left;
+	width: 600px;
+	height: 50px;
+	margin: 100px 0px 30px 200px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #A9A9A9;
+	font-size: 20px;
+}
+
+.alertInner span {
+	display: block;
+	float: left;
+	margin: 115px 20px 0 0;
+	width: 50px;
+	height: 50px;
+	background: url(../images/search.png) no-repeat;
+	cursor: pointer;
+	position: absolute;
+	left: 765px;
+}
+
+input:focus {
+	outline: 0px;
+}
+
+
+span:focus {
+	border: none;
+	outline: 0px;
+}
+
+button:focus {
+	border: none;
+	outline: 0px;
+}
+
+.hotWords {
+	width: 600px;
+	margin: 30px 200px;
+	height: 250px;
+	color: #A9A9A9;
+	font-size: 16px;
+}

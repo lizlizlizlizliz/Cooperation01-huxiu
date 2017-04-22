@@ -1,0 +1,225 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,image{ margin:0; padding:0; }
+body {font-family:'Microsoft Yahei'; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a {text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+ textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+
+button:focus {
+	border:0px!important;
+	outline-width: 0px;
+}
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+}
+
+.container {
+	width: 1000px;
+	margin: 100px auto;
+	position: relative;
+}
+
+.listNav {
+	position: absolute;
+	top: -80px;
+	left: 0px;
+	width: 100%;
+	height: 85px;
+	border: 1px solid #999;
+	display: none;
+}
+
+.listNav ul {
+	margin: 0 auto;
+}
+
+.listNav ul li {
+	float: left;
+	margin: 0 45px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.listNav li a {
+	color: #666;
+}
+
+.listNav li a:hover {
+	color: #f67c16;
+}
+
+.listNav button {
+	border:0;
+	float: left;
+	width: 14px;
+	height: 85px;
+	background: url(../images/nav-hide.png) no-repeat;
+}
+
+.listNav button:hover {
+	cursor: pointer;
+}
+
+.listTitle {
+	position: absolute;
+	top: -80px;
+	left: 0;
+	width: 150px;
+	height: 85px;
+}
+
+.listTitle img {
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin: 30px 10px;
+}
+
+.listTitle img:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+    transition: all 0.5s ease 0s;
+    -webkit-transform: scale(1.1);/* Safari and Chrome */
+    -webkit-transform: all 0.5s ease 0s;
+}
+
+.listTitle h1 {
+	width: 150px;
+	font-size: 18px;
+	color: #666;
+	line-height: 85px;
+}
+
+.listTitle h1:hover {
+	cursor: pointer;
+}
+
+.lists {
+	margin: 120px 0;
+	width: 100%;
+}
+
+.funs {
+	margin-top: 20px;
+	width: 100%;
+	height: 200px;
+}
+
+.funs-left {
+	width: 15%;
+	float: left;
+}
+
+.funs-left img {
+	margin: 20px 30px 0 50px;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+}
+
+.funs-left h1 {
+	color: #000;
+	font-size: 14px;
+	margin: 0 30px 5px 50px;
+}
+
+.funs-left p {
+	color: #666;
+	font-size: 12px;
+	margin: 0 30px 10px 50px;
+}
+
+.funs-right {
+	position: relative;
+	float: left;
+	width: 85%;
+}
+
+.funs-right h1 {
+	float: left;
+	width: 720px;
+	font-size: 20px;
+	color: #000;
+	margin: 20px 20px 10px 20px;
+}
+
+.likebutton {
+	float: right;
+	border: none; 
+	width: 30px;
+	height: 30px;
+	background: url(../images/like.png) no-repeat;
+}
+
+.funs-right button:hover {
+	background: url(../images/like-orange.png) no-repeat;
+	cursor: pointer;
+}
+
+.funs-right span {
+	float: right;
+	font-size: 16px;
+	line-height: 26px;
+	color: #999;
+}
+
+.funs-right p {
+	display: block;
+	width: 800px;
+	height: 120px;
+	margin: 20px 20px;
+	font-size: 16px;
+	color: #666;
+}
+
+.like {
+	margin: 10px 20px 0 0 ;
+	float: right;
+	width: 60px;
+	height: 60px;
+}
+
+.liked {
+	position: absolute;
+	left: 780px;
+	margin: 10px 20px 0 0 ;
+	float: right;
+	width: 60px;
+	height: 60px;
+	opacity: 1;
+	display: none;
+}
+
+.already {
+	left: 20px;
+	float: right;
+	border: none; 
+	width: 30px;
+	height: 30px;
+	background: url(../images/like-orange.png) no-repeat;
+}
+
+.shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}/*每条新闻阴影效果*/
+
+.loading {
+	width: 100px;
+	height: 50px;
+	margin: 0 auto;
+	background: url(../images/loading.png) no-repeat;
+	cursor: pointer;
+}

@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="huxiuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityWhat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ActivityWhere" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityWhen" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ActivityTips" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ActivityImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="IsHeadline" Type="bit" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AdminPassword" Type="nchar" MaxLength="45" Nullable="false" />
+          <Property Name="AdminSex" Type="bit" Nullable="false" />
+          <Property Name="AdminProblem" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdminAnswer" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdminImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorId" />
+          </Key>
+          <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorSex" Type="bit" Nullable="false" />
+          <Property Name="AuthorSummary" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeleteLog">
+          <Key>
+            <PropertyRef Name="DelId" />
+          </Key>
+          <Property Name="DelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DelTime" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="DelAdminId" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="LogId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Headline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HId" Type="int" Nullable="false" />
+          <Property Name="Htitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Himg" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hdeadline" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="HisDisplay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NewsBody" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewsLink" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewsDate" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="NewsAgree" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsAgree">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserIp" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passage">
+          <Key>
+            <PropertyRef Name="PassageId" />
+          </Key>
+          <Property Name="PassageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassageBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PassageImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassageCategory" Type="int" Nullable="false" />
+          <Property Name="PublishDate" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="PageViews" Type="int" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassageCategory">
+          <Key>
+            <PropertyRef Name="PCategoryId" />
+          </Key>
+          <Property Name="PCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“huxiu.dbo.Passage_Author”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Passage_Author">
+          <Key>
+            <PropertyRef Name="PassageId" />
+            <PropertyRef Name="PassageTitle" />
+            <PropertyRef Name="PassageBody" />
+            <PropertyRef Name="PassageImage" />
+            <PropertyRef Name="PassageCategory" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="AuthorId" />
+            <PropertyRef Name="PageViews" />
+            <PropertyRef Name="IsDel" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="AuthorSummary" />
+            <PropertyRef Name="AuthorSex" />
+            <PropertyRef Name="AuthorImage" />
+          </Key>
+          <Property Name="PassageId" Type="int" Nullable="false" />
+          <Property Name="PassageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassageBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PassageImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassageCategory" Type="int" Nullable="false" />
+          <Property Name="PublishDate" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="PageViews" Type="int" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorSummary" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AuthorSex" Type="bit" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“huxiu.dbo.PassageInformation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="PassageInformation">
+          <Key>
+            <PropertyRef Name="PassageId" />
+            <PropertyRef Name="PassageTitle" />
+            <PropertyRef Name="PassageBody" />
+            <PropertyRef Name="PassageCategory" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="PageViews" />
+            <PropertyRef Name="CategoryName" />
+            <PropertyRef Name="IsDel" />
+            <PropertyRef Name="AuthorId" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="AuthorImage" />
+            <PropertyRef Name="PassageImage" />
+          </Key>
+          <Property Name="PassageId" Type="int" Nullable="false" />
+          <Property Name="PassageTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PassageBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PassageCategory" Type="int" Nullable="false" />
+          <Property Name="PublishDate" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="PageViews" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="AuthorId" Type="int" Nullable="false" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AuthorImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassageImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Author_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Author1" Type="Self.Author" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorId" />
+            </Principal>
+            <Dependent Role="Author1">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passage_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Passage" Type="Self.Passage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorId" />
+            </Principal>
+            <Dependent Role="Passage">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passage_Passage">
+          <End Role="PassageCategory" Type="Self.PassageCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Passage" Type="Self.Passage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassageCategory">
+              <PropertyRef Name="PCategoryId" />
+            </Principal>
+            <Dependent Role="Passage">
+              <PropertyRef Name="PassageCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="huxiuModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeleteLog" EntityType="Self.DeleteLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Headline" EntityType="Self.Headline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsAgree" EntityType="Self.NewsAgree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passage" EntityType="Self.Passage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassageCategory" EntityType="Self.PassageCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passage_Author" EntityType="Self.Passage_Author" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Passage_Author].[PassageId] AS [PassageId], 
+[Passage_Author].[PassageTitle] AS [PassageTitle], 
+[Passage_Author].[PassageBody] AS [PassageBody], 
+[Passage_Author].[PassageImage] AS [PassageImage], 
+[Passage_Author].[PassageCategory] AS [PassageCategory], 
+[Passage_Author].[PublishDate] AS [PublishDate], 
+[Passage_Author].[AuthorId] AS [AuthorId], 
+[Passage_Author].[PageViews] AS [PageViews], 
+[Passage_Author].[IsDel] AS [IsDel], 
+[Passage_Author].[AuthorName] AS [AuthorName], 
+[Passage_Author].[AuthorSummary] AS [AuthorSummary], 
+[Passage_Author].[AuthorSex] AS [AuthorSex], 
+[Passage_Author].[AuthorImage] AS [AuthorImage]
+FROM [dbo].[Passage_Author] AS [Passage_Author]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PassageInformation" EntityType="Self.PassageInformation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[PassageInformation].[PassageId] AS [PassageId], 
+[PassageInformation].[PassageTitle] AS [PassageTitle], 
+[PassageInformation].[PassageBody] AS [PassageBody], 
+[PassageInformation].[PassageCategory] AS [PassageCategory], 
+[PassageInformation].[PublishDate] AS [PublishDate], 
+[PassageInformation].[PageViews] AS [PageViews], 
+[PassageInformation].[CategoryName] AS [CategoryName], 
+[PassageInformation].[IsDel] AS [IsDel], 
+[PassageInformation].[AuthorId] AS [AuthorId], 
+[PassageInformation].[AuthorName] AS [AuthorName], 
+[PassageInformation].[AuthorImage] AS [AuthorImage], 
+[PassageInformation].[PassageImage] AS [PassageImage]
+FROM [dbo].[PassageInformation] AS [PassageInformation]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Author_Author" Association="Self.FK_Author_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Author1" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passage_Author" Association="Self.FK_Passage_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Passage" EntitySet="Passage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passage_Passage" Association="Self.FK_Passage_Passage">
+            <End Role="PassageCategory" EntitySet="PassageCategory" />
+            <End Role="Passage" EntitySet="Passage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="huxiuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="45" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="AdminSex" Type="Boolean" Nullable="false" />
+          <Property Name="AdminProblem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminAnswer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorId" />
+          </Key>
+          <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorSex" Type="Boolean" Nullable="false" />
+          <Property Name="AuthorSummary" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Author1" Relationship="Self.FK_Author_Author" FromRole="Author" ToRole="Author1" />
+          <NavigationProperty Name="Author2" Relationship="Self.FK_Author_Author" FromRole="Author1" ToRole="Author" />
+          <NavigationProperty Name="Passage" Relationship="Self.FK_Passage_Author" FromRole="Author" ToRole="Passage" />
+        </EntityType>
+        <EntityType Name="DeleteLog">
+          <Key>
+            <PropertyRef Name="DelId" />
+          </Key>
+          <Property Name="DelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DelTime" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DelAdminId" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="LogId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Headline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HId" Type="Int32" Nullable="false" />
+          <Property Name="Htitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Himg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hdeadline" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="HisDisplay" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewsBody" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewsLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewsDate" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="NewsAgree" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passage">
+          <Key>
+            <PropertyRef Name="PassageId" />
+          </Key>
+          <Property Name="PassageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassageBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassageImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassageCategory" Type="Int32" Nullable="false" />
+          <Property Name="PublishDate" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="PageViews" Type="Int32" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Passage_Author" FromRole="Passage" ToRole="Author" />
+          <NavigationProperty Name="PassageCategory1" Relationship="Self.FK_Passage_Passage" FromRole="Passage" ToRole="PassageCategory" />
+        </EntityType>
+        <EntityType Name="PassageCategory">
+          <Key>
+            <PropertyRef Name="PCategoryId" />
+          </Key>
+          <Property Name="PCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Passage" Relationship="Self.FK_Passage_Passage" FromRole="PassageCategory" ToRole="Passage" />
+        </EntityType>
+        <EntityType Name="PassageInformation">
+          <Key>
+            <PropertyRef Name="PassageId" />
+            <PropertyRef Name="PassageTitle" />
+            <PropertyRef Name="PassageBody" />
+            <PropertyRef Name="PassageCategory" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="PageViews" />
+            <PropertyRef Name="CategoryName" />
+            <PropertyRef Name="IsDel" />
+            <PropertyRef Name="AuthorId" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="AuthorImage" />
+            <PropertyRef Name="PassageImage" />
+          </Key>
+          <Property Name="PassageId" Type="Int32" Nullable="false" />
+          <Property Name="PassageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassageBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassageCategory" Type="Int32" Nullable="false" />
+          <Property Name="PublishDate" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PageViews" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="AuthorName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PassageImage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Author_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Author1" Type="Self.Author" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorId" />
+            </Principal>
+            <Dependent Role="Author1">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passage_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Passage" Type="Self.Passage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorId" />
+            </Principal>
+            <Dependent Role="Passage">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passage_Passage">
+          <End Role="PassageCategory" Type="Self.PassageCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Passage" Type="Self.Passage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassageCategory">
+              <PropertyRef Name="PCategoryId" />
+            </Principal>
+            <Dependent Role="Passage">
+              <PropertyRef Name="PassageCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="huxiuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Author" EntityType="Self.Author" />
+          <EntitySet Name="DeleteLog" EntityType="Self.DeleteLog" />
+          <EntitySet Name="Headline" EntityType="Self.Headline" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Passage" EntityType="Self.Passage" />
+          <EntitySet Name="PassageCategory" EntityType="Self.PassageCategory" />
+          <EntitySet Name="PassageInformation" EntityType="Self.PassageInformation" />
+          <AssociationSet Name="FK_Author_Author" Association="Self.FK_Author_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Author1" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passage_Author" Association="Self.FK_Passage_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Passage" EntitySet="Passage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passage_Passage" Association="Self.FK_Passage_Passage">
+            <End Role="PassageCategory" EntitySet="PassageCategory" />
+            <End Role="Passage" EntitySet="Passage" />
+          </AssociationSet>
+          <EntitySet Name="Activity" EntityType="huxiuModel.Activity" />
+          <EntitySet Name="NewsAgree" EntityType="huxiuModel.NewsAgree" />
+          <EntitySet Name="Passage_Author" EntityType="huxiuModel.Passage_Author" />
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityWhat" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityWhere" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityWhen" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="ActivityTips" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="IsHeadline" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="NewsAgree">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserIp" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passage_Author">
+          <Key>
+            <PropertyRef Name="PassageId" />
+            <PropertyRef Name="PassageTitle" />
+            <PropertyRef Name="PassageBody" />
+            <PropertyRef Name="PassageImage" />
+            <PropertyRef Name="PassageCategory" />
+            <PropertyRef Name="PublishDate" />
+            <PropertyRef Name="AuthorId" />
+            <PropertyRef Name="PageViews" />
+            <PropertyRef Name="IsDel" />
+            <PropertyRef Name="AuthorName" />
+            <PropertyRef Name="AuthorSummary" />
+            <PropertyRef Name="AuthorSex" />
+            <PropertyRef Name="AuthorImage" />
+          </Key>
+          <Property Name="PassageId" Type="Int32" Nullable="false" />
+          <Property Name="PassageTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassageBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassageImage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassageCategory" Type="Int32" Nullable="false" />
+          <Property Name="PublishDate" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="AuthorId" Type="Int32" Nullable="false" />
+          <Property Name="PageViews" Type="Int32" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorSummary" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorSex" Type="Boolean" Nullable="false" />
+          <Property Name="AuthorImage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="huxiuModelStoreContainer" CdmEntityContainer="huxiuEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="huxiuModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminSex" ColumnName="AdminSex" />
+                <ScalarProperty Name="AdminProblem" ColumnName="AdminProblem" />
+                <ScalarProperty Name="AdminAnswer" ColumnName="AdminAnswer" />
+                <ScalarProperty Name="AdminImage" ColumnName="AdminImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="huxiuModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorSex" ColumnName="AuthorSex" />
+                <ScalarProperty Name="AuthorSummary" ColumnName="AuthorSummary" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeleteLog">
+            <EntityTypeMapping TypeName="huxiuModel.DeleteLog">
+              <MappingFragment StoreEntitySet="DeleteLog">
+                <ScalarProperty Name="DelId" ColumnName="DelId" />
+                <ScalarProperty Name="DelTime" ColumnName="DelTime" />
+                <ScalarProperty Name="DelAdminId" ColumnName="DelAdminId" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Headline">
+            <EntityTypeMapping TypeName="huxiuModel.Headline">
+              <MappingFragment StoreEntitySet="Headline">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HId" ColumnName="HId" />
+                <ScalarProperty Name="Htitle" ColumnName="Htitle" />
+                <ScalarProperty Name="Himg" ColumnName="Himg" />
+                <ScalarProperty Name="Hdeadline" ColumnName="Hdeadline" />
+                <ScalarProperty Name="HisDisplay" ColumnName="HisDisplay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="huxiuModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsAgree" ColumnName="NewsAgree" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+                <ScalarProperty Name="NewsBody" ColumnName="NewsBody" />
+                <ScalarProperty Name="NewsLink" ColumnName="NewsLink" />
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passage">
+            <EntityTypeMapping TypeName="huxiuModel.Passage">
+              <MappingFragment StoreEntitySet="Passage">
+                <ScalarProperty Name="PassageId" ColumnName="PassageId" />
+                <ScalarProperty Name="PassageTitle" ColumnName="PassageTitle" />
+                <ScalarProperty Name="PassageBody" ColumnName="PassageBody" />
+                <ScalarProperty Name="PassageImage" ColumnName="PassageImage" />
+                <ScalarProperty Name="PassageCategory" ColumnName="PassageCategory" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="PageViews" ColumnName="PageViews" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassageCategory">
+            <EntityTypeMapping TypeName="huxiuModel.PassageCategory">
+              <MappingFragment StoreEntitySet="PassageCategory">
+                <ScalarProperty Name="PCategoryId" ColumnName="PCategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassageInformation">
+            <EntityTypeMapping TypeName="huxiuModel.PassageInformation">
+              <MappingFragment StoreEntitySet="PassageInformation">
+                <ScalarProperty Name="PassageImage" ColumnName="PassageImage" />
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="PassageId" ColumnName="PassageId" />
+                <ScalarProperty Name="PassageTitle" ColumnName="PassageTitle" />
+                <ScalarProperty Name="PassageBody" ColumnName="PassageBody" />
+                <ScalarProperty Name="PassageCategory" ColumnName="PassageCategory" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="PageViews" ColumnName="PageViews" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="huxiuModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="IsHeadline" ColumnName="IsHeadline" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="ActivityImage" ColumnName="ActivityImage" />
+                <ScalarProperty Name="ActivityTips" ColumnName="ActivityTips" />
+                <ScalarProperty Name="ActivityWhen" ColumnName="ActivityWhen" />
+                <ScalarProperty Name="ActivityWhere" ColumnName="ActivityWhere" />
+                <ScalarProperty Name="ActivityWhat" ColumnName="ActivityWhat" />
+                <ScalarProperty Name="ActivityTitle" ColumnName="ActivityTitle" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsAgree">
+            <EntityTypeMapping TypeName="huxiuModel.NewsAgree">
+              <MappingFragment StoreEntitySet="NewsAgree">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="UserIp" ColumnName="UserIp" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passage_Author">
+            <EntityTypeMapping TypeName="huxiuModel.Passage_Author">
+              <MappingFragment StoreEntitySet="Passage_Author">
+                <ScalarProperty Name="AuthorImage" ColumnName="AuthorImage" />
+                <ScalarProperty Name="AuthorSex" ColumnName="AuthorSex" />
+                <ScalarProperty Name="AuthorSummary" ColumnName="AuthorSummary" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="PageViews" ColumnName="PageViews" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="PassageCategory" ColumnName="PassageCategory" />
+                <ScalarProperty Name="PassageImage" ColumnName="PassageImage" />
+                <ScalarProperty Name="PassageBody" ColumnName="PassageBody" />
+                <ScalarProperty Name="PassageTitle" ColumnName="PassageTitle" />
+                <ScalarProperty Name="PassageId" ColumnName="PassageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

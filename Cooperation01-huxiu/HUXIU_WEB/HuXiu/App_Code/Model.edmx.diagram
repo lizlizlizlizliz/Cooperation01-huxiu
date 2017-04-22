@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9e044a8c580484b8aedfbb4dbc92ef2" Name="Diagram1">
+        <EntityTypeShape EntityType="huxiuModel.Admin" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.Author" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.DeleteLog" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.Headline" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.News" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.Passage" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.PassageCategory" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="huxiuModel.PassageInformation" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="huxiuModel.FK_Author_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="huxiuModel.FK_Passage_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="huxiuModel.FK_Passage_Passage" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="huxiuModel.Activity" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="huxiuModel.NewsAgree" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="huxiuModel.Passage_Author" Width="1.5" PointX="10.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bottom</title>
+	<link rel="stylesheet" type="text/css" href="css/backstage.css">
+</head>
+<body>
+	<div class="bottom">
+		<h1 id="time"></h1>
+	</div>
+</body>
+<script>
+	//时间
+function time(){
+  var now= new Date();
+  var year=now.getFullYear();
+  var month=now.getMonth();
+  var date=now.getDate();
+  var weekday=new Array(7)
+	weekday[0]="星期天";
+	weekday[1]="星期一";
+	weekday[2]="星期二";
+	weekday[3]="星期三";
+	weekday[4]="星期四";
+	weekday[5]="星期五";
+	weekday[6]="星期六";
+
+//获取相应ID
+ document.getElementById("time").innerHTML="今天是："+year+"年"+(month+1)+"月"+date+"日"+" "+weekday[now.getDay()];
+}
+time();
+</script>
+</html>

@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>虎嗅网</title>
+    <%--<meta charset="UTF-8">--%>
+	 <%--<link rel="stylesheet" type="text/css" href="css/short.css">--%>
+	<%--<link rel="stylesheet" type="text/css" href="css/shortmon.css">--%>
+	<link rel="stylesheet" type="text/css" href="/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="/css/topnav.css">
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/footer.js"></script>
+	<%--<script type="text/javascript" src="js/topnav.js"></script>--%>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div>
+        <div class="click-to-close"></div>
+        <div class="top"><!--顶部导航栏-->
+		<div class="topNav"><!--顶部导航栏居中部分-->
+			<div class="informationNav"><!--资讯导航栏-->
+				<div class="secondNav displaynone"><!--资讯二级菜单-->
+					<ul>
+						<asp:Repeater ID="Rpt" runat="server" >
+                             <ItemTemplate>
+                                 <li><a href='<%# "PassageList.aspx?id="+ Eval("PCategoryId") %>'><%#Eval("CategoryName") %></a></li>
+                            </ItemTemplate>
+                         </asp:Repeater>
+					</ul>
+				</div>
+				<h1 id="information">资讯</h1>
+			</div>
+			<div class="logo"><!--虎嗅logo-->
+				<a href="Index.aspx">
+					<img src="images/logo.jpg">
+				</a>
+			</div>
+			<div class="activities"><!--活动按钮-->
+				<a href="/ActivityList.aspx">活动</a>
+			</div>
+			<div class="search"><!--手机+搜索-->
+				<a href=""><button id="phone"></button></a><!--手机-->
+				<button src="images/search.png" id="search"></button><!--搜索按钮-->
+			</div>
+		</div>
+	</div>
+	<div class="alert"><!--搜索弹窗-->
+		<div class="alertInner">
+			<input type="text" placeholder="请输入关键词">
+			<span></span>
+			<div class="hotWords">
+				<h1>热搜词</h1>
+			</div>
+		</div>
+	</div>
+            <form id="form1" runat="server">
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+
+
+        </asp:ContentPlaceHolder>
+</form>
+        <div class="footer">
+		<img class="return-top" src="images/returntop.png" alt="" />
+		<ul class="footer-inf clearfix">
+			<li><a href="">关于我们</a></li>
+			<li><a href="">加入我们</a></li>
+			<li><a href="">合作伙伴</a></li>
+			<li><a href="">广告及服务</a></li>
+			<li><a href="">常见问题解答</a></li>
+			<li><a href="">防网络诈骗专题</a></li>
+		</ul>
+		<div class="weibo-wechat-qqzone clearfix">
+			<div class="footer-weibo"><a href=""></a></div>
+			<div class="footer-wechat"><a href=""></a></div>
+			<div class="footer-qqzone"><a href=""></a></div>
+		</div>
+		<div class="footer-login">
+			<div>
+				<p>All Rights Reserved. </p>
+				<a href="/backstage/login.aspx">管理员登录</a>
+			</div>
+		</div>
+	</div >
+    </div>
+    <%--</form>--%>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI.WebControls;
+
+/// <summary>
+/// Upload 的摘要说明
+/// </summary>
+public class Upload
+{
+    public Upload()
+    {
+        //
+        // TODO: 在此处添加构造函数逻辑
+        //
+    }
+
+    //public enum FileExtension   //检查上传文件的头文件的函数
+    //{
+    //    GIF = 7173,
+    //    JPG = 255216,
+    //    BMP = 6677,
+    //    PNG = 255217
+    //    //PNG = 13780,
+    //    //DOC = 208207,
+    //    //DOCX = 8075,
+    //    //XLSX = 8075,
+    //    //JS = 239187,
+    //    //XLS = 208207,
+    //    //SWF = 6787,
+    //    //MID = 7784,
+    //    //RAR = 8297,
+    //    //ZIP = 8075,
+    //    //XML = 6063,
+    //    //TXT = 7067,
+    //    //MP3 = 7368,
+    //    //WMA = 4838,
+    //    // 239187 aspx
+    //    // 117115 cs
+    //    // 119105 js
+    //    // 210187 txt
+    //    //255254 sql 		
+    //    // 7790 exe dll,
+    //    // 8297 rar
+    //    // 6063 xml
+    //    // 6033 html
+    //}
+
+    //static public class FileValidation  //判断上传的文件是否为图片类型
+    //{
+    //    public static bool IsAllowedExtension(FileUpload fu, FileExtension[] fileEx)
+    //    {
+    //        int fileLen = fu.PostedFile.ContentLength;  //获取上传文件的大小
+
+    //        byte[] imgArray = new byte[fileLen];
+
+    //        fu.PostedFile.InputStream.Read(imgArray, 0, fileLen); //获取文件并准备读取文件
+
+    //        MemoryStream ms = new MemoryStream(imgArray);
+
+    //        System.IO.BinaryReader br = new System.IO.BinaryReader(ms);  //把文件转化成二进制
+
+    //        string fileclass = "";
+
+    //        byte buffer;
+
+    //        try
+    //        {
+    //            buffer = br.ReadByte();
+
+    //            fileclass = buffer.ToString();
+
+    //            buffer = br.ReadByte();
+
+    //            fileclass += buffer.ToString();
+    //        }
+    //        catch
+    //        {
+    //        }
+    //        br.Close();
+    //        ms.Close();
+    //        //注意将文件流指针还原
+    //        //fu.PostedFile.InputStream.Postion = 0;
+    //        foreach (FileExtension fe in fileEx) //遍历这个fe这个函数的文件类型 看看上传的文件是否符合
+    //        {
+    //            if (Int32.Parse(fileclass) == (int)fe)
+    //                return true;
+    //        }
+    //        return false;
+    //    }
+    //}
+
+    //public void judge(string FileName)
+    //{
+    //    string filename = "";
+
+    //    Boolean fileOK = false;
+
+    //    if (upload.HasFile)//判断是否已选取文件
+    //    {
+    //        String fileExtension = System.IO.Path.GetExtension(FileName).ToLower(); //取得文件的扩展名
+
+    //        String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };//限定上传文件类型为这几种类型
+
+    //        for (int i = 0; i < allowedExtensions.Length; i++)
+    //        {
+    //            if (fileExtension == allowedExtensions[i])   //判断文件的类型是否为图片类型一个个匹对
+    //            {
+    //                fileOK = true;
+    //            }
+    //        }
+    //    }
+    //    FileExtension[] fe = { FileExtension.BMP, FileExtension.GIF, FileExtension.JPG, FileExtension.PNG };
+
+    //    if (fileOK && FileValidation.IsAllowedExtension(upload, fe))  //判断文件类型是否为bmp/gif/jpg/png以及检测头文件
+    //    {
+    //        int id = Convert.ToInt32(Request.QueryString["id1"].ToString());
+
+    //        string fileExt = System.IO.Path.GetExtension(FileName).ToLower();
+
+    //        filename = "/PhotoFile/" + DateTime.Now.ToString("yyyyMMddHHmmss") + fileExt;  //设置文件名
+
+    //    }
+    //}
+}

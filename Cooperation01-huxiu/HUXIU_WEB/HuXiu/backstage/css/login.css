@@ -1,0 +1,130 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+ body { background:#fff; color:#555; font-size:14px; font-family: "微软雅黑", "黑体", sans-serif; }
+ td,th,caption { font-size:14px; }
+ h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+ address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+ a {  text-decoration:none; }
+ a:hover { text-decoration:none; }
+ img { border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    height: 30px;
+    width: 97px;
+    margin-top: 15px;
+}
+ ol,ul,li { list-style:none; }
+ input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+ table { border-collapse:collapse; }
+ html {overflow-y: scroll;} 
+
+ .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+ .clearfix { *zoom:1; }
+body{
+	background: rgb(8,14,26);
+}
+.container{
+	width:100%;
+	height:497px;
+	padding-top: 121px;
+	position:relative;
+	//background:rgb(8,14,26);
+}
+h1{
+	width:100%;
+	margin-bottom: 40px;
+	text-align:center;
+	color:white;
+	font-size: 36px;
+}
+input{
+	display:block;
+	width:330px;
+	margin:5px auto;
+	height:50px;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	color:#999;
+	border:none;
+	outline:none;
+	background:url(../images/username1.png);
+}
+.username-tip,.password-tip{
+	width:100%;
+	height:30px;
+}
+.username-tip p,.password-tip p{
+	height:20px;
+	width:100%;
+	line-height: 20px;
+	text-align:center;
+	margin-top: 5px;
+	color:red;
+	display:none;
+}
+.indentifying-code {
+	width:282px;
+	margin:0 auto;
+}
+.indentifying-code input{
+	float:left;
+	width:140px;
+	height:70px;
+	border:none;
+	outline:none;
+	background: url(../images/yanzheng1.png);
+}
+.indentifying-code div{
+    overflow:hidden;
+	float:left;
+	width:126px;
+	height:54px;
+	margin:11px 5px;
+	border:2px solid rgb(244,124,24);
+	border-radius:10px;
+}
+#valiImg{
+    margin-top:-2px;
+    margin-left:-1px;
+    display:block;
+    width:130px;
+    height:58px;
+}
+.login-in{
+	width:90px;
+	margin:0 auto;
+	margin-top: 30px;
+	height:90px;
+	font-size:16px;
+	font-weight:bold;
+	color:white;
+	text-align:center;
+	line-height: 90px;
+	background: url(../images/login-button1.png);
+}
+.login-in:hover{
+	background: url(../images/login-button.png);
+}
+
+/* #demo {
+        width: 300px;
+        height:60px;
+        margin: 0px auto;
+        margin-top: -10px;
+        padding: 10px;
+        border: 1px dashed #d5d4ff;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        text-align: left;
+    } */
+    @media screen and (min-width:1367px){
+		.container{
+			height:639px;
+		}
+    }
+    @media screen and (max-width:500px){
+    	.container{
+    		width:500px;
+    	}
+    }

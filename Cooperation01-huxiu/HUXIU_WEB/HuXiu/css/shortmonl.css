@@ -1,0 +1,231 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,image{ margin:0; padding:0; }
+body {font-family:'Microsoft Yahei'; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a {text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+ textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+body{
+	position:relative;
+}
+
+.container{
+	width:1000px;
+	margin:100px auto;
+}
+.listTitle {
+	width: 150px;
+	height: 50px;
+	margin-top: -68px;
+	margin-bottom: -25px;
+}
+
+.listTitle img {
+	float: left;
+	width: 35px;
+	height: 35px;
+	margin:7.5px 0;
+	margin-right: 10px;
+}
+
+.listTitle img:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+    transition: all 0.5s ease 0s;
+    -webkit-transform: scale(1.1);/* Safari and Chrome */
+    -webkit-transform: all 0.5s ease 0s;
+}
+
+.listTitle h1 {
+	width: 150px;
+	font-size: 18px;
+	color: #666;
+	height:50px;
+	line-height: 50px;
+	letter-spacing: 3px;
+}
+
+
+.lists{
+	width:100%;
+}
+.funs-shadow{
+	padding-top: 28px;
+	padding-bottom:15px;
+	width:100%;
+	//height:190px;
+	margin-top: 65px;
+	-webkit-box-shadow:0 0 18px 3px rgb(241, 241, 241);  
+  	-moz-box-shadow:0 0 18px 3px rgb(241, 241, 241);  
+  	box-shadow:0 0 30px 3px rgb(241, 241, 241); 
+}
+.title-and-time{
+	width:90%;
+	height:30px;
+	line-height: 30px;
+	margin:0 auto;
+	margin-bottom:17px;
+	position: relative;
+}
+.title-and-time h1{
+	float:left;
+	font-size: 18px;
+	letter-spacing:2px;
+	color:#333;
+}
+.title-and-time p{
+	float:right;
+	height:15px;
+	line-height: 15px;
+	position: absolute;
+	right:0;
+	bottom:0;
+	font-size: 10px;
+	letter-spacing:1px;
+	color:#999;
+}
+.funs-content{
+	width:90%;
+	margin:0 auto;
+}
+.funs-content p{
+	width:100%;
+	height:69px;
+	line-height: 23px;
+	word-break:break-word;
+	color:#666;
+}
+.funs-content a{
+	font-size:10px;
+	color:#999;
+	cursor: pointer;
+	letter-spacing: 1px;
+	margin-left:5px;
+}
+.funs-content a:hover{
+	color:rgb(242,124,24);
+}
+.dianzan-bottom{
+	width:90%;
+	margin:0 auto;
+	height:20.5px;
+	position:relative;
+}
+.like p{
+	float:right;
+	height:20.5px;
+	line-height: 20.5px;
+	font-size: 10px;
+	color:#999;
+}
+.likebutton {
+	display: block;
+	float:right;
+	width: 28px;
+	height: auto;
+	cursor:pointer;
+}
+.liked{
+	width:100px;
+	display:none;
+	position:absolute;
+	right:0px;
+	bottom: 0px;
+	z-index:2;
+	height:20.5px;
+}
+.liked p{
+	float:right;
+	height:20.5px;
+	line-height: 20.5px;
+	font-size: 10px;
+	color:rgb(241,124,24);
+}
+.liked img {
+	display: block;
+	float:right;
+	width: 28px;
+	height: auto;
+}
+.loading {
+	color: #fd974d;
+	width: 91px;
+	height: 30px;
+	margin: 20px auto;
+	background: url(../images/loading.png) no-repeat;
+	position: relative;
+	z-index: +4;
+	cursor: pointer;
+}
+.loading:hover{
+	width:99px;
+	height:30px;
+	background-size: 99px auto;
+}
+
+.searchInput {
+	position: relative;
+	width: 100%;
+}
+
+.searchInput input {
+	width: 860px;
+	height: 40px;
+	border: 1px solid #fd974d;
+	padding-left: 30px;
+	font-size: 25px;
+	line-height: 41px;
+	color: #999;
+}
+
+.searchInput span {
+	cursor: pointer;
+	width: 110px;
+	height: 42px;
+	display: block;
+	position: absolute;
+	right: -1px;
+	top: 0px;
+	background: url(../images/orange-search.png) no-repeat;
+}
+.return-top{
+	z-index:3;
+	display:block;
+	cursor:pointer;
+	position: fixed;
+}
+
+@media screen and (min-width: 1601px) {
+	.container {
+		width: 1405px;
+		margin: 0 auto;
+	}
+
+	.searchInput {
+		margin: 0 auto;
+		margin-left: 0px;
+	}
+
+	.searchInput input {
+		margin:30px 0;
+		width: 1250px;
+		height: 60px;
+	}
+
+	.searchInput span {
+		width: 155px;
+		height: 62px;
+		background-size: 155px 62px;
+		position: absolute;
+		right: -1px;
+		top: 30px;
+	}
+
+}

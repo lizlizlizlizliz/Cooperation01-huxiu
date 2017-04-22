@@ -1,0 +1,144 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+ body { background:#fff; color:#555; font-size:14px; font-family: "微软雅黑", "黑体", sans-serif; }
+ td,th,caption { font-size:14px; }
+ h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+ address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+ a {  text-decoration:none; }
+ a:hover { text-decoration:none; }
+ img { border:none; }
+ ol,ul,li { list-style:none; }
+ input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+ table { border-collapse:collapse; }
+ html {overflow-y: scroll;} 
+
+ .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+ .clearfix { *zoom:1; }
+.footer{
+    position:relative;
+    //position:absolute;
+	width:100%;
+	background: #080e1a;
+	padding-top:30px;
+}
+.footer-inf{
+	width:600px;
+	margin:0 auto;
+}
+.footer-inf li{
+	margin-right:30px;
+	float:left;
+}
+.footer-inf li a{
+	display:block;
+	width:100%;
+	color:white;
+}
+.footer-inf li a:hover{
+	color:rgb(246,124,22);
+}
+.weibo-wechat-qqzone{
+	width:200px;
+	height:40px;
+	margin:20px auto;
+}
+.weibo-wechat-qqzone div{
+	width:33.3%;
+	float:left;
+}
+.weibo-wechat-qqzone a{
+	display:block;
+	width:40px;
+	height:40px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.footer-weibo a{
+	background: url(../images/footer-icon.png) no-repeat;
+	background-position: 0 -35px;
+}
+.footer-wechat a{
+	background: url(../images/footer-icon.png) no-repeat;
+	background-position: -70px -35px;
+}
+.footer-qqzone a{
+	background: url(../images/footer-icon.png) no-repeat;
+	background-position: -140px -35px;
+}
+.footer-weibo a:hover{
+	background-position: 0 1px;
+}
+.footer-wechat a:hover{
+	background-position: -70px 1px;
+}
+.footer-qqzone a:hover{
+	background-position: -140px 1px;
+}
+.footer-login{
+	background:black;
+	height:40px;
+	overflow:hidden;
+	width:100%;
+}
+.footer-login p{
+	width:100%;
+	text-align:center;
+	height:40px;
+	line-height:40px;
+	color:#999;
+}
+.footer-login div{
+	width:100%;
+	height:80px;
+}
+.footer-login  a{
+	display:block;
+	width:75px;
+	height:40px;
+	line-height: 40px;
+	color:#999;
+	margin:0 auto;
+}
+.footer-login a:hover{
+	text-decoration: underline;
+}
+/* .return-top{
+	display:block;
+	cursor:pointer;
+	position: absolute;
+	right:127px;
+	top:-55px;
+} */
+/*.footer{
+	position:relative;
+}*/
+@media screen and (min-width:1601px){
+	/* .return-top{
+		right:201.5px;
+	} */
+	 .footer-inf{
+		width:843px;
+	} 
+	.footer-inf li{
+		margin-right: 50px;
+	}
+	.footer-inf a{
+		font-size:18px;
+	}
+	.weibo-wechat-qqzone{
+		margin:30px auto;
+	}
+	.footer-login{
+		font-size:18px;
+	}
+	.footer-login a{
+		width:90px;
+	}
+}
+@media screen and (max-width:980px){
+	.footer{
+		width:980px;
+	}
+	.footer-login a{
+		width:70px;
+	}
+}

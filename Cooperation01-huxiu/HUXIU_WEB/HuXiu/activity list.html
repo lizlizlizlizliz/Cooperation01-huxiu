@@ -1,0 +1,160 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/activity list.css">
+	<link rel="stylesheet" type="text/css" href="css/topnav.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<!-- <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script src="js/jquery.js"></script> -->
+	<script src="js/jqueryto.js"></script>
+	<script type="text/javascript" src="js/topnav.js"></script>
+</head>
+<body>
+	<div class="top"><!--顶部导航栏-->
+		<div class="topNav"><!--顶部导航栏居中部分-->
+			<div class="informationNav"><!--资讯导航栏-->
+				<div class="secondNav displaynone"><!--资讯二级菜单-->
+					<ul>
+						<li><a href="">电商消费</a></li>
+						<li><a href="">娱乐淘金</a></li>
+						<li><a href="">电商消费</a></li>
+						<li><a href="">娱乐淘金</a></li>
+						<li><a href="">电商消费</a></li>
+						<li><a href="">娱乐淘金</a></li>
+						<li><a href="">电商消费</a></li>
+						<li><a href="">娱乐淘金</a></li>
+					</ul>
+				</div>
+				<h1 id="information">资讯</h1>
+			</div>
+			<div class="logo"><!--虎嗅logo-->
+				<a href="index.html">
+					<img src="images/logo.jpg">
+				</a>
+			</div>
+			<div class="activities"><!--活动按钮-->
+				<a href="activity list.html">活动</a>
+			</div>
+			<div class="search"><!--手机+搜索-->
+				<a href=""><button id="phone"></button></a><!--手机-->
+				<button src="images/search.png" id="search"></button><!--搜索按钮-->
+			</div>
+		</div>
+	</div>
+	<div class="alert"><!--搜索弹窗-->
+		<div class="alertInner">
+			<input type="text" placeholder="请输入关键词">
+			<span></span>
+			<div class="hotWords">
+				<h1>热搜词</h1>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="accordion clearfix">
+			<a class="act-animate" href="activity content.html">
+				<img  class="accordion-act" src="images/banner_bg1.png" alt="">
+				<img class="accordion-button" src="images/btn.png" alt="">
+			</a>
+			<a class="act-animate" href="activity content.html">
+				<img  class="accordion-act" src="images/banner_bg2.png" alt="">
+				<img class="accordion-button" src="images/btn.png" alt="">
+			</a> 
+			<a class="act-back" href="activity content.html">
+				<!-- <img class="accordion-act" src="images/banner_bg3.png"  alt=""> -->
+				 <!-- <img class="accordion-button" src="images/btn.png" alt=""> -->
+			</a>
+			<img class="accordion-button accordion-special-button" src="images/btn.png" alt="">
+		</div>
+		<div class="huxiu-act">
+			<div class="activity-title">
+				<img src="images/huodong_icon.png" alt="">
+				<p>虎嗅活动</p>
+			</div>
+				
+			<!-- <div id="act-in-1" class="act-in clearfix">
+				<div class="act-process">
+					<img src="images/circle_black.png" alt="">
+					<p>已结束</p>
+				</div>
+				<img class="activity-img" src="images/huodong_img1.png" alt="">
+				<div class="activity-text">
+					<h2>[虎嗅微访谈No.6]阿尔法工厂如何计划“钱途”</h2>
+					<p>对热点问题和企业项目感兴趣？虎嗅微访谈让你直面负责人，支持吊打鼓励逼问。</p>
+					<a href="">更多详情</a>
+				</div>
+			</div>
+			<div id="act-in-2" class="act-in-2 act-in clearfix">
+				<div class="act-process-2">
+					<img src="images/circle_orange.png" alt="">
+					<p>进行中</p>
+				</div>
+				<img class="activity-img-2 activity-img" src="images/huodong_img2.png" alt="">
+				<div class="activity-text-2 activity-text">
+					<h2>[虎嗅微访谈No.6]阿尔法工厂如何计划“钱途”</h2>
+					<p>对热点问题和企业项目感兴趣？虎嗅微访谈让你直面负责人，支持吊打鼓励逼问。</p>
+					<a href="">更多详情</a>
+				</div>
+			</div>
+			<div id="act-in-3" class="act-in clearfix">
+				<div class="act-process">
+					<img src="images/circle_black.png" alt="">
+					<p>已结束</p>
+				</div>
+				<img class="activity-img" src="images/huodong_img1.png" alt="">
+				<div class="activity-text">
+					<h2>[虎嗅微访谈No.6]阿尔法工厂如何计划“钱途”</h2>
+					<p>对热点问题和企业项目感兴趣？虎嗅微访谈让你直面负责人，支持吊打鼓励逼问。</p>
+					<a href="">更多详情</a>
+				</div>
+			</div>
+			<div id="act-in-4" class="act-in-2 act-in clearfix">
+				<div class="act-process-2">
+					<img src="images/circle_orange.png" alt="">
+					<p>进行中</p>
+				</div>
+				<img class="activity-img-2 activity-img" src="images/huodong_img2.png" alt="">
+				<div class="activity-text-2 activity-text">
+					<h2>[虎嗅微访谈No.6]阿尔法工厂如何计划“钱途”</h2>
+					<p>对热点问题和企业项目感兴趣？虎嗅微访谈让你直面负责人，支持吊打鼓励逼问。</p>
+					<a href="">更多详情</a>
+				</div>
+			</div> -->
+		</div>
+		<div class="loaddiv"></div>
+	</div>
+
+
+
+	<div class="footer">
+		<img class="return-top" src="images/returntop.png" alt="">
+		<ul class="footer-inf clearfix">
+			<li><a href="">关于我们</a></li>
+			<li><a href="">加入我们</a></li>
+			<li><a href="">合作伙伴</a></li>
+			<li><a href="">广告及服务</a></li>
+			<li><a href="">常见问题解答</a></li>
+			<li><a href="">防网络诈骗专题</a></li>
+		</ul>
+		<div class="weibo-wechat-qqzone clearfix">
+			<div class="footer-weibo"><a href=""></a></div>
+			<div class="footer-wechat"><a href=""></a></div>
+			<div class="footer-qqzone"><a href=""></a></div>
+		</div>
+		<div class="footer-login">
+			<div>
+				<p>All Rights Reserved. </p>
+				<a href="login.html">管理员登录</a>
+			</div>
+		</div>
+	</div >
+	<script src="js/footer.js"></script>
+	<script src="js/activity list click.js"></script>
+</body>
+</html>

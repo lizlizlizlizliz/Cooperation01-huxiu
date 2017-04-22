@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/backstage.css">
+	<script type="text/javascript" src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<title>main</title>
+</head>
+<body>
+	<table width="100%" height="600" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;">
+  <tr id="trr">
+    <td width="200" id="frmTitle" noWrap name="fmTitle" align="center" valign="top">
+		<div class="left" id="left" style="overflow:auto;">
+		<ul>
+			<li onclick="showUl(this)">
+				<h1>文章</h1>
+				<ul id="hide01">
+					<li id="information">
+						<h2>资讯</h2>
+						<ul id="hide05"><li id="addinfo"><a href="#">添加资讯</a></li></ul>
+					</li>
+					<li id="short">
+						<h2>短趣</h2>
+						<ul id="hide06"><li id="addinter"><a href="#">添加短趣</a></li></ul>
+					</li>
+					<li id="activity">
+						<h2>活动</h2>
+						<ul id="hide07"><li id="addact"><a href="#">添加活动</a></li></ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li onclick="showUl(this)">
+				<h1>管理员</h1>
+				<ul id="hide02">
+					<li id="deletee"><a href="#">最近删除</a></li>
+					<li id="correct"><a href="#">管理员信息</a></li>
+                    <li id="addAdmin"><a href="#">添加管理员</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li onclick="showUl(this)">
+				<h1>作者</h1>
+				<ul id="hide03">
+					<li id="writer"><a href="#">作者信息</a></li>
+					<li id="addwriter"><a href="#">添加作者</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li id="topnews" onclick="showUl(this)">
+				<h1>头条管理</h1>
+                <ul id="hide08">
+                    <li id="headPsg"><a href="#">资讯头条</a></li>
+                    <li id="headAct"><a href="#">活动头条</a></li>
+                </ul>
+			</li>
+		</ul>
+		<ul>
+			<li onclick="showUl(this)">
+				<h1>分类</h1>
+				<ul id="hide04">
+					<li id="classes"><a href="#">分类列表</a></li>
+					<li id="addcla"><a href="#">添加分类</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>	
+	</td>
+    <td width="8" valign="middle" id="layout-side-arrow">
+    	<span class="navPoint">
+    		<img src="images/center.gif" name="img1" width=8 height=600 id=img1>
+    	</span>
+    </td>
+    <td align="center" valign="top" id="tdd">
+    	<iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src="PassageList.aspx" id="main"> ä¯ÀÀÆ÷²»Ö§³ÖÇ¶ÈëÊ½¿ò¼Ü£¬»ò±»ÅäÖÃÎª²»ÏÔÊ¾Ç¶ÈëÊ½¿ò¼Ü¡£
+    	</iframe>
+    </td>
+  </tr>
+</table>
+</body>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+overflow:hidden;
+}
+-->
+
+span {
+	cursor: pointer;
+}
+</style>
+<style> 
+.close {
+	display: none;
+}
+
+.navPoint { 
+COLOR: white; CURSOR: hand; FONT-FAMILY: Webdings; FONT-SIZE: 9pt 
+} 
+</style> 
+<script>
+
+function showUl(obj){
+		var aUl = obj.getElementsByTagName("ul")[0];
+		if(aUl.style.display != "block"){
+			aUl.style.display = "block";
+		}
+		else {
+			aUl.style.display = "none";
+		}
+		
+	}
+
+var hide01 = document.getElementById("hide01");
+var hide02 = document.getElementById("hide02");
+var hide03 = document.getElementById("hide03");
+var hide04 = document.getElementById("hide04");
+var hide05 = document.getElementById("hide05");
+var hide06 = document.getElementById("hide06");
+var hide07 = document.getElementById("hide07");
+var hide08 = document.getElementById("hide08");
+hide01.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide02.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide03.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide04.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide05.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide06.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide07.onclick=function(event){
+  // 停止DOM事件层次传播
+  event.stopPropagation();
+};
+hide08.onclick = function (event) {
+    // 停止DOM事件层次传播
+    event.stopPropagation();
+};
+
+//加载
+var information = document.getElementById("information");//资讯
+var short = document.getElementById("short");//短趣
+var activity = document.getElementById("activity");//活动
+var deletee = document.getElementById("deletee");//最近删除
+var correct = document.getElementById("correct");//信息修改
+var addAdmin = document.getElementById("addAdmin");//添加管理员
+var addinfo = document.getElementById("addinfo");//添加资讯
+var addinter = document.getElementById("addinter");//添加短趣
+var addact = document.getElementById("addact");//添加活动
+var writer = document.getElementById("writer");//作者信息
+var addwriter = document.getElementById("addwriter");//添加作者
+var topnews = document.getElementById("topnews");//头条管理
+var headPsg = document.getElementById("headPsg");//资讯头条
+var headAct = document.getElementById("headAct");//活动头条
+var classes = document.getElementById("classes");//分类列表
+var addcla = document.getElementById("addcla");//添加分类
+var iframe = document.getElementById("main");//加载位置
+
+information.onclick=function(){iframe.src="PassageList.aspx";}
+short.onclick=function(){iframe.src="NewsList.aspx";}
+activity.onclick=function(){iframe.src="ActivityList.aspx";}
+deletee.onclick=function(){iframe.src="Recovery.aspx";}
+correct.onclick = function () { iframe.src = "tempJump.aspx"; }
+addAdmin.onclick = function () { iframe.src = "Register.aspx"; }
+addinfo.onclick=function(){iframe.src="PassageAdd.aspx";}
+addinter.onclick=function(){iframe.src="NewsAdd.aspx";}
+addact.onclick=function(){iframe.src="ActivityAdd.aspx";}
+writer.onclick=function(){iframe.src="AuthorList.aspx";}
+addwriter.onclick=function(){iframe.src="AuthorAdd.aspx";}
+//topnews.onclick = function () { iframe.src = "SetHeadline.aspx"; }
+headPsg.onclick = function () { iframe.src = "SetHeadline.aspx"; }
+headAct.onclick = function () { iframe.src = "SetActiveHeadline.aspx";}
+classes.onclick=function(){iframe.src="PCategoryList.aspx";}
+addcla.onclick=function(){iframe.src="PCategoryAdd.aspx";}
+
+
+
+
+/*左侧菜单展开和关闭按钮事件*/
+$(document).on("click","#layout-side-arrow",function(){
+	if($("#frmTitle").hasClass("close")){
+		$("#frmTitle").removeClass("close");
+	}
+	else{
+		$("#frmTitle").addClass("close");
+	}
+});
+</script>
+</html>

@@ -1,0 +1,237 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,image{ margin:0; padding:0; }
+body {font-family:'Microsoft Yahei'; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a {text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+ textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+
+body{
+	position:relative;
+}
+.container{
+	width:1000px;
+	margin:100px auto;
+}
+.listTitle {
+	width: 200px;
+	height: 50px;
+	margin-top: -68px;
+	margin-bottom: -25px;
+}
+
+.listTitle img {
+	display:block;
+	float: left;
+	width: 35px;
+	height: 35px;
+	margin:7.5px 0;
+	margin-right: 10px;
+}
+
+.listTitle img:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+    transition: all 0.5s ease 0s;
+    -webkit-transform: scale(1.1);/* Safari and Chrome */
+    -webkit-transform: all 0.5s ease 0s;
+}
+
+.listTitle h1 {
+	float:left;
+	width: 150px;
+	font-size: 18px;
+	color: #666;
+	height:50px;
+	line-height: 50px;
+	letter-spacing: 3px;
+}
+
+
+.lists{
+	width:100%;
+}
+.funs-shadow{
+	padding-top: 28px;
+	padding-bottom:15px;
+	width:100%;
+	//height:190px;
+	margin-top: 65px;
+	-webkit-box-shadow:0 0 30px 3px rgb(241, 241, 241);  
+  	-moz-box-shadow:0 0 30px 3px rgb(241, 241, 241);  
+  	box-shadow:0 0 30px 3px rgb(241, 241, 241); 
+}
+.title-and-time{
+	width:90%;
+	height:30px;
+	line-height: 30px;
+	margin:0 auto;
+	margin-bottom:17px;
+	position: relative;
+}
+.title-and-time h1{
+	float:left;
+	font-size: 18px;
+	letter-spacing:2px;
+	color:#333;
+}
+.title-and-time p{
+	float:right;
+	height:15px;
+	line-height: 15px;
+	position: absolute;
+	right:0;
+	bottom:0;
+	font-size: 10px;
+	letter-spacing:1px;
+	color:#999;
+}
+.funs-content{
+	width:90%;
+	margin:0 auto;
+}
+.funs-content p{
+	width:100%;
+	height:69px;
+	line-height: 23px;
+	overflow: hidden;
+	color:#666;
+}
+.funs-content a{
+	font-size:10px;
+	color:#999;
+	cursor: pointer;
+	letter-spacing: 1px;
+	margin-left:5px;
+}
+.funs-content a:hover{
+	color:rgb(242,124,24);
+}
+.dianzan-bottom{
+	width:90%;
+	margin:0 auto;
+	height:20.5px;
+	position:relative;
+}
+.like p{
+	float:right;
+	height:20.5px;
+	line-height: 20.5px;
+	font-size: 10px;
+	color:#999;
+}
+.likebutton {
+	display: block;
+	float:right;
+	width: 28px;
+	height: auto;
+	cursor:pointer;
+}
+.liked{
+	width:100px;
+	display:none;
+	position:absolute;
+	right:0px;
+	bottom: 0px;
+	z-index:2;
+	height:20.5px;
+}
+.liked p{
+	float:right;
+	height:20.5px;
+	line-height: 20.5px;
+	font-size: 10px;
+	color:rgb(241,124,24);
+}
+.liked img {
+	display: block;
+	float:right;
+	width: 28px;
+	height: auto;
+}
+.loaddiv{
+	cursor: pointer;
+	background:url(../images/loaddiv.png) no-repeat;
+	width:91px;
+	height:30px;
+	margin:0 auto;
+	margin-top: -67px;
+	margin-bottom:70px;
+	color:rgb(246,124,22);
+	line-height:30px;
+	text-align: center;
+}
+.loaddiv.loadhover:hover{
+	width:99px;
+	height:33px;
+	margin-top:-70px;
+	background-size: 99px auto;
+}
+.return-top{
+	z-index:3;
+	display:block;
+	cursor:pointer;
+	position: fixed;
+	/* right:120px;
+	//top:-60px; */
+}
+@media screen and (min-width:1601px){
+	.container{
+		width:1405px;
+	}
+	.listTitle{
+		width:260px;
+		height:68px;
+	}
+	.listTitle img{
+		width:48px;
+		height:48px;
+		margin:10px 0;
+	}
+	.listTitle h1{
+		height:68px;
+		line-height: 68px;
+		font-size: 22px;
+		margin-left: 18px;
+	}
+	.funs-shadow{
+		padding-top:38px;
+		padding-bottom: 20px;
+	}
+	.title-and-time{
+		height:40px;
+		margin-bottom: 23px;
+	}
+	.title-and-time h1{
+		height:40px;
+		line-height: 40px;
+	}
+	.title-and-time p{
+		height:20px;
+		line-height: 20px;
+		font-size: 12px;
+	}
+	.funs-content p{
+		height:90px;
+		line-height: 30px;
+		font-size: 16px;
+	}
+	.funs-content a{
+		font-size:12px;
+		margin-left: 7px;
+	}
+	.like p,.liked p{
+		font-size: 12px;
+	}
+	.return-top{
+		right:201.5px;
+	} 
+
+}
